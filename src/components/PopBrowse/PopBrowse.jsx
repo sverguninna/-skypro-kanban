@@ -33,8 +33,8 @@ function PopBrowse(params) {
                     <div className="pop-browse__wrap">
                         <div className="pop-browse__form form-browse" id="formBrowseCard" action="#">									
                             <div className="form-browse__block">
-                                <label for="textArea01" className="subttl">Описание задачи</label>
-                                <textarea className="form-browse__area" name="text" id="textArea01"  readonly placeholder="Введите описание задачи..."></textarea>
+                                <label htmlFor="textArea01" className="subttl">Описание задачи</label>
+                                <textarea className="form-browse__area" name="text" id="textArea01"  readOnly placeholder="Введите описание задачи..."></textarea>
                             </div>
                         </div>
                         <div className="pop-new-card__calendar calendar">
