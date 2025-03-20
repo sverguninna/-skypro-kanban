@@ -13,17 +13,17 @@ import './signup.css'
 function App() {
   return (
     <>
-           <div className="wrapper">
-     
-		{/* <Modal/>
+      <div className="wrapper">
+
+        {/* <Modal/>
 		<Registration/> */}
-      <PopExit/>
-      <PopNewCard/>
-	  <PopBrowse/>
-      <Header/>
-	  <MainContainer/>
-    </div>
-    
+        <PopExit />
+        <PopNewCard />
+        <PopBrowse />
+        <Header />
+        <MainContainer />
+      </div>
+
     </>
   )
 }
