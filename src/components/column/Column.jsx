@@ -1,13 +1,15 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Card from "../Card/Card"
-import { cardList } from "../../data"
+import { cardList } from "../../mock/data"
 
 function Column({ status }) {
     const [loader, setloader] = useState(true)
-
-    setTimeout(()=>{
-        setloader(false)
-    }, 1500)
+    useEffect (()=>{
+        setTimeout(()=>{
+            setloader(false)
+        }, 1500)
+    }, [])
+   
 
 
 

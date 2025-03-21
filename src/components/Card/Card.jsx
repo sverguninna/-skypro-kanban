@@ -1,12 +1,16 @@
 function Card({card}) {
     // props - входные параметры функции
     let active = ''
+    let blokActive =''
     if (card.topic === 'Web Design') {
         active = '_orange'
+        blokActive ='card__theme _orange'
     }else if(card.topic ==='Copywriting' ){
         active = '_purple'
+         blokActive ='card__theme _purple'
     }else if(card.topic ==='Research' ){
         active = '_green'
+         blokActive ='card__theme _green'
     }
 
 
@@ -14,7 +18,7 @@ function Card({card}) {
         <div className="cards__item" id={card.id}>
             <div className="cards__card card">
                 <div className="card__group">
-                    <div className="card__theme _orange">
+                    <div className={blokActive}>
                         <p className={active}>{card.topic}</p>
                     </div>
                     <a href="#popBrowse" target="_self">

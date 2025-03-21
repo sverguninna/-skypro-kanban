@@ -6,7 +6,7 @@ function Header(params) {
     const [showPopUpUser, setShowPopUpUser] = useState(false) // [variable, setVariable]
     const style = showPopUpUser ? {display: 'block'} : {display: 'none'}
 
-    function closeAndOpenUserPopUp() {
+    function  toggleUserPopUp() {
         setShowPopUpUser(!showPopUpUser)
     }
 
@@ -23,7 +23,7 @@ function Header(params) {
                 </div>
                 <nav className="header__nav">
                     <button className="header__btn-main-new _hover01" id="btnMainNew"><a href="#popNewCard">Создать новую задачу</a></button>
-                    <a  href="#" onClick={closeAndOpenUserPopUp} className="header__user _hover02">Ivan Ivanov</a>
+                    <a  href="#" onClick={ toggleUserPopUp} className="header__user _hover02">Ivan Ivanov</a>
                     <div className="header__pop-user-set pop-user-set" style={style} id="user-set-target">
                         <p className="pop-user-set__name">Ivan Ivanov</p>
                         <p className="pop-user-set__mail">ivan.ivanov@gmail.com</p>

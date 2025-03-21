@@ -1,7 +1,7 @@
 
 import PopNewCard from './components/PopNewCard/PopNewCard'
 import PopExit from './components/PopExit/PopExit'
-import Header from './components/Header/header'
+import Header from './components/Header/Header'
 import MainContainer from './components/MainContainer/MainContainer'
 import Modal from './components/Modal/Modal'
 import PopBrowse from './components/PopBrowse/PopBrowse'

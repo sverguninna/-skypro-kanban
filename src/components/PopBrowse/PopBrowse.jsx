@@ -31,7 +31,7 @@ function PopBrowse(params) {
                             </div>
                         </div>
                         <div className="pop-browse__wrap">
-                            <div className="pop-browse__form form-browse" id="formBrowseCard" action="#">
+                            <div className="pop-browse__form form-browse" id="formBrowseCard" >
                                 <div className="form-browse__block">
                                     <label htmlFor="textArea01" className="subttl">Описание задачи</label>
                                     <textarea className="form-browse__area" name="text" id="textArea01" readOnly placeholder="Введите описание задачи..."></textarea>
