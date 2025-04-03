@@ -1,8 +1,10 @@
+import { PopNewCardS, PopNewCardContainer, PopNewCardBlock} from "./PopNeWCard.styled"
+
 function PopNewCard(params) {
     return (
-        <div className="pop-new-card" id="popNewCard">
-            <div className="pop-new-card__container">
-                <div className="pop-new-card__block">
+        <PopNewCardS /* id="popNewCard" */>
+            <PopNewCardContainer>
+                <PopNewCardBlock>
                     <div className="pop-new-card__content">
                         <h3 className="pop-new-card__ttl">Создание задачи</h3>
                         <a href="#" className="pop-new-card__close">&#10006;</a>
@@ -107,9 +109,9 @@ function PopNewCard(params) {
                         </div>
                         <button className="form-new__create _hover01" id="btnCreate">Создать задачу</button>
                     </div>
-                </div>
-            </div>
-        </div>
+                </PopNewCardBlock>
+            </PopNewCardContainer>
+        </PopNewCardS>
     )
 }
 export default PopNewCard

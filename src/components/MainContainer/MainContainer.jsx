@@ -1,26 +1,27 @@
 import Column from "../column/Column"
 import Card from "../Card/Card"
+import { Main, Container, MainBlock, MainContent } from "./Main.styled"
 
 function MainContainer(params) {
 
     return (
 
-        <main className="main">
-            <div className="container">
-                <div className="main__block">
-                    <div className="main__content">
+        <Main>
+            <Container>
+                <MainBlock>
+                    <MainContent>
                         <Column status={'Без статуса'} />
                         <Column status={'Нужно сделать'} />
                         <Column status={'В работе'} />
                         <Column status={'Тестирование'} />
                         <Column status={'Готово'} />
-                    </div>
-                </div>
+                    </MainContent>
+                </MainBlock>
 
                 {/* a.innnerHTML = list.map((el)=> 'div el.title') */}
                 
-            </div>
-        </main>
+            </Container>
+        </Main>
     )
 }
 

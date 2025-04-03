@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import Card from "../Card/Card"
 import { cardList } from "../../mock/data"
+import { ColumnS, ColumnTitle, ColumnTitleP, Cards} from "./Column.styled"
 
 function Column({ status }) {
     const [loader, setloader] = useState(true)
@@ -16,14 +17,14 @@ function Column({ status }) {
 
 
     return (
-        <div className="main__column column">
-            <div className="column__title">
-                <p>{status}</p>
-            </div>
-            <div className="cards">
+        <ColumnS>
+            <ColumnTitle>
+                <ColumnTitleP>{status}</ColumnTitleP>
+            </ColumnTitle>
+            <Cards>
                 {loader ? <div>Идет загрузка...</div> : cardList.filter((card) => card.status === status).map((card) => <Card key={card.id} card={card} />)}
-            </div>
-        </div>
+            </Cards>
+        </ColumnS>
     )
 }
 

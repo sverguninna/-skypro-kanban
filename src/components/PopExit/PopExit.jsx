@@ -1,6 +1,8 @@
+import { PopExitS } from "./PopExit.styled"
+
 function PopExit() {
     return (
-        <div className="pop-exit" id="popExit">
+        < PopExitS /* id="popExit" */>
             <div className="pop-exit__container">
                 <div className="pop-exit__block">
                     <div className="pop-exit__ttl">
@@ -14,7 +16,7 @@ function PopExit() {
                     </div>
                 </div>
             </div>
-        </div>
+        </PopExitS>
     )
 }
 
