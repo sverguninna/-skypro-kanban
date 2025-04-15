@@ -1,5 +1,5 @@
 import styled, { createGlobalStyle } from "styled-components";
-
+import { NavLink } from "react-router-dom";
 
 const HeaderS = styled.div` 
     width: 100%;
@@ -46,8 +46,23 @@ const HeaderNav = styled.nav`
     justify-content: center;
 
 `
-const HeaderButton = styled.button`
+// const HeaderButton = styled.button`
+//     width: 178px;
+//     height: 30px;
+//     border-radius: 4px;
+//     background-color: #565EEF;
+//     color: #FFFFFF;
+//     border: none;
+//     font-size: 14px;
+//     line-height: 1;
+//     font-weight: 500;
+//     margin-right: 20px;
+// `
+const MyNavLink = styled(NavLink)`
     width: 178px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 30px;
     border-radius: 4px;
     background-color: #565EEF;
@@ -57,9 +72,6 @@ const HeaderButton = styled.button`
     line-height: 1;
     font-weight: 500;
     margin-right: 20px;
-`
-const HeaderButtonLink = styled.a`
- color: FFFFFF;
 `
 const HeaderUser = styled.a`
   height: 20px;
@@ -155,9 +167,9 @@ const PopButton = styled.button.attrs((props)=>({
     background-color: #33399b;
     color: #FFFFFF;
   }` 
-const PopButtonA = styled.a`
+const PopButtonA = styled(NavLink)`
  &:hover{
     color: #FFFFFF;
   }
 `
-export {HeaderS, HeaderBlok, Container, HeaderLogo, HeaderLogoDark , HeaderNav, HeaderButton, HeaderButtonLink, Headerİmg, HeaderUser, HeaderUserPopSet,UserPopName,  UserPopMail, UserPopTheme, PopThemeP, PopThemeInput, PopButton, PopButtonA}
+export {HeaderS, HeaderBlok, Container, HeaderLogo, HeaderLogoDark , HeaderNav, MyNavLink, Headerİmg, HeaderUser, HeaderUserPopSet,UserPopName,  UserPopMail, UserPopTheme, PopThemeP, PopThemeInput, PopButton, PopButtonA}

@@ -1,8 +1,7 @@
-import { HeaderS, HeaderBlok, Container, HeaderLogo, HeaderLogoDark, HeaderButton, HeaderNav, HeaderButtonLink, Headerİmg, HeaderUser, HeaderUserPopSet, UserPopName, UserPopTheme, UserPopMail, PopThemeP, PopThemeInput, PopButton, PopButtonA} from "./Header.styled"
+import { HeaderS, HeaderBlok, Container, HeaderLogo, HeaderLogoDark, HeaderNav, MyNavLink, Headerİmg, HeaderUser, HeaderUserPopSet, UserPopName, UserPopTheme, UserPopMail, PopThemeP, PopThemeInput, PopButton, PopButtonA} from "./Header.styled"
 import { useState } from "react"
-import PopNewCard from '../PopNewCard/PopNewCard'
 import logo from '../../../public/images/logo.png';
-
+import { NavLink } from "react-router-dom";
 function Header(params) {
 
     const [showPopUpUser, setShowPopUpUser] = useState(false) // [variable, setVariable]
@@ -27,7 +26,7 @@ function Header(params) {
                     <a href="" target="_self"><img src="images/logo_dark.png" alt="logo" /></a>
                 </HeaderLogoDark>
                 <HeaderNav>
-                    < HeaderButton /*  id="btnMainNew" */><HeaderButtonLink>Создать новую задачу</HeaderButtonLink></HeaderButton>
+                    <MyNavLink to='/pop-new-card'>Cоздать новую задачу</MyNavLink>
                     <HeaderUser onClick={toggleUserPopUp} >Ivan Ivanov</HeaderUser>
                     {showPopUpUser && <HeaderUserPopSet /*  className="header__pop-user-set pop-user-set" */ /* style={style} *//*  id="user-set-target" */>
                         <UserPopName>Ivan Ivanov</UserPopName>
@@ -36,12 +35,15 @@ function Header(params) {
                             <PopThemeP>Темная тема</PopThemeP>
                             <PopThemeInput type="checkbox"  name="checkbox"></PopThemeInput>
                         </UserPopTheme>
-                        <PopButton type="button" ><PopButtonA /* href="#popExit" */>Выйти</PopButtonA></PopButton>
+                        <PopButton type="button" ><PopButtonA to='/pop-exit'>Выйти</PopButtonA></PopButton>
                     </HeaderUserPopSet >}
                 </HeaderNav>
             </HeaderBlok>
         </Container>
     </HeaderS>)
 }
+
+
+
 
 export default Header

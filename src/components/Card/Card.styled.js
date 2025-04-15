@@ -1,5 +1,5 @@
 import styled, { keyframes } from "styled-components";
-
+import { NavLink } from "react-router-dom";
 
 const orange = {
     backgroundColor: "#FFE4C2",
@@ -81,7 +81,7 @@ const StatusReserch = styled(CardTheme)`
    background-color: ${purple.backgroundColor};
    color: ${purple.color}
 `
-const CardLink = styled.a.attrs((props)=>({
+const CardLink = styled(NavLink).attrs((props)=>({
     target: props.target
 }))``
 
