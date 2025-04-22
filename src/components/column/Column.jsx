@@ -1,54 +1,30 @@
+import { useEffect, useState } from "react"
 import Card from "../Card/Card"
+import { cardList } from "../../mock/data"
+import { ColumnS, ColumnTitle, ColumnTitleP, Cards} from "./Column.styled"
 
-function Column(params) {
-    return(
-        <div className="main__block">
-        <div className="main__content">
-            <div className="main__column column">
-                <div className="column__title">
-                    <p>Без статуса</p>
-                </div>
-                <div className="cards">
-                     <Card/> 
-                </div>
-            </div>						
-            <div className="main__column">
-                <div className="column__title">
-                    <p>Нужно сделать</p>
-                </div>
-                <div className="cards">
-                  <Card/> 
-                </div>
-            </div>
-            <div className="main__column">
-                <div className="column__title">
-                    <p>В работе</p>
-                </div>
-                <div className="cards">
-                  <Card/> 
-                </div>
-            </div>
-            <div className="main__column">
-                <div className="column__title">
-                    <p>Тестирование</p>
-                </div>
-                <div className="cards">
-                    <Card/> 
-                </div>
-            </div>
-            <div className="main__column">
-                <div className="column__title">
-                    <p>Готово</p>
-                </div>
-                <div className="cards">
-                    <Card/> 
-                </div>
-            </div>
-    
-            
-        </div>
-    
-    </div>
+function Column({ status }) {
+    const [loader, setloader] = useState(true)
+    useEffect (()=>{
+        setTimeout(()=>{
+            setloader(false)
+        }, 1500)
+    }, [])
+   
+
+
+
+
+
+    return (
+        <ColumnS>
+            <ColumnTitle>
+                <ColumnTitleP>{status}</ColumnTitleP>
+            </ColumnTitle>
+            <Cards>
+                {loader ? <div>Идет загрузка...</div> : cardList.filter((card) => card.status === status).map((card) => <Card key={card.id} card={card} />)}
+            </Cards>
+        </ColumnS>
     )
 }
 

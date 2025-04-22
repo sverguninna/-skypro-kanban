@@ -1,30 +1,51 @@
+import { HeaderS, HeaderBlok, Container, HeaderLogo, HeaderLogoDark, HeaderNav, MyNavLink, Headerİmg, HeaderUser, HeaderUserPopSet, UserPopName, UserPopTheme, UserPopMail, PopThemeP, PopThemeInput, PopButton, PopButtonA} from "./Header.styled"
+import { useState } from "react"
+import logo from '../../../public/images/logo.png';
+import { NavLink } from "react-router-dom";
+
 function Header(params) {
-    return (<header className="header">
-        <div className="container">
-            <div className="header__block">
-                <div className="header__logo _show _light">
-                    <a href="" target="_self"><img src="images/logo.png" alt="logo"/></a>
-                </div>
-                <div className="header__logo _dark">
-                    <a href="" target="_self"><img src="images/logo_dark.png" alt="logo"/></a>
-                </div>
-                <nav className="header__nav">
-                    <button className="header__btn-main-new _hover01" id="btnMainNew"><a href="#popNewCard">Создать новую задачу</a></button>
-                    <a href="#user-set-target" className="header__user _hover02">Ivan Ivanov</a>
-                    <div className="header__pop-user-set pop-user-set" id="user-set-target">
-                    {/* <a href="">x</a>  */}
-                        <p className="pop-user-set__name">Ivan Ivanov</p>
-                        <p className="pop-user-set__mail">ivan.ivanov@gmail.com</p>
-                        <div className="pop-user-set__theme">
-                            <p>Темная тема</p>
-                            <input type="checkbox" className="checkbox" name="checkbox"/>
-                        </div>
-                        <button type="button" className="_hover03"><a href="#popExit">Выйти</a></button>
-                    </div>
-                </nav>					
-            </div>
-        </div>			
-    </header>)
+    const [userName, setUserName ] = useState(JSON.parse( localStorage.getItem('userInfo')) || {login:'Имя'})
+   
+
+    const [showPopUpUser, setShowPopUpUser] = useState(false) // [variable, setVariable]
+    /* const style = showPopUpUser ? {display: 'block'} : {display: 'none'} */
+
+    function toggleUserPopUp() {
+        setShowPopUpUser(!showPopUpUser)
+    }
+    function renderingNewPopCard(params) {
+        return (<PopNewCard />)
+    }
+
+
+    return (<HeaderS>
+        <Container>
+            <HeaderBlok>
+                <HeaderLogo /* className="header__logo _show _light" */>
+                    <a href="" target="_self"><Headerİmg src={logo} alt="logo" /></a>
+                </HeaderLogo>
+                <HeaderLogoDark >
+                    <a href="" target="_self"><img src="images/logo_dark.png" alt="logo" /></a>
+                </HeaderLogoDark>
+                <HeaderNav>
+                    <MyNavLink to='/pop-new-card'  >Cоздать новую задачу</MyNavLink> 
+                    <HeaderUser onClick={toggleUserPopUp} >{userName.login} </HeaderUser>
+                    {showPopUpUser && <HeaderUserPopSet /*  className="header__pop-user-set pop-user-set" */ /* style={style} *//*  id="user-set-target" */>
+                        <UserPopName>Ivan Ivanov</UserPopName>
+                        < UserPopMail >ivan.ivanov@gmail.com</UserPopMail >
+                        <UserPopTheme>
+                            <PopThemeP>Темная тема</PopThemeP>
+                            <PopThemeInput type="checkbox"  name="checkbox"></PopThemeInput>
+                        </UserPopTheme>
+                        <PopButton type="button" ><PopButtonA to='/pop-exit'>Выйти</PopButtonA></PopButton>
+                    </HeaderUserPopSet >}
+                </HeaderNav>
+            </HeaderBlok>
+        </Container>
+    </HeaderS>)
 }
+
+
+
 
 export default Header
