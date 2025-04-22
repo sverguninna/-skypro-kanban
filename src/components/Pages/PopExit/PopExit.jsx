@@ -1,6 +1,11 @@
 import * as S from "./PopExit.styled"
 
 function PopExit() {
+
+    function  clearUser () {
+        localStorage.clear()
+    } 
+    
     return (
         < S.PopExitS /* id="popExit" */>
             <S.PopExitContainer>
@@ -10,7 +15,7 @@ function PopExit() {
                     </S.PopExitTTL>
                     <div /* className="pop-exit__form" id="formExit"  */>
                         <S.PopExitForm>
-                            < S.PopExitExitYes id="exitYes"><S.PopExitExitYesA to="/modal">Да, выйти</S.PopExitExitYesA> </S.PopExitExitYes>
+                            < S.PopExitExitYes id="exitYes" onClick={clearUser} ><S.PopExitExitYesA to="/sing-in">Да, выйти</S.PopExitExitYesA> </S.PopExitExitYes>
                             <S.PopExitExitNo id="exitNo"><S.PopExitExitNoA to="/">Нет, остаться</S.PopExitExitNoA> </S.PopExitExitNo>
                         </S.PopExitForm>
                     </div>

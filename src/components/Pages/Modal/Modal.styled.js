@@ -44,9 +44,7 @@ const ModalFormLogin = styled.div`
     justify-content: center;
 `
 const ModalInputLogin = styled.input.attrs((props)=>({
-    name:props.name,
-    type:props.type,
-    placeholder:props.placeholder,
+    ...props
 }))` 
     width: 100%;
     min-width: 100%;
@@ -73,12 +71,10 @@ const ModalInputLogin = styled.input.attrs((props)=>({
 }
 `
 const ModalInputPas = styled(ModalInputLogin).attrs((props) =>({
-    name:props.name,
-    type:props.type,
-    placeholder:props.placeholder,
+   ...props
 }))``
 
-const ModalBtnEnter = styled.button`
+const ModalBtnEnter = styled.button.attrs((props)=>({...props}))`
     width: 100%;
     height: 30px;
     background-color: #565EEF;

@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom'
 import { useState } from 'react'
 import { cardList } from '../../../mock/data'
+import NotFoundPage from '../NotFound/NotFound'
 import * as S from './PopBrowse.styled'
 
 
@@ -8,8 +9,11 @@ function PopBrowse(params) {
 
     const [redactionMode, setRedactionMode] = useState(false)
     const { id } = useParams()
+    
     const [task] = cardList.filter((card) => card.id === Number(id))
-
+    if (!task) {
+        return <NotFoundPage/>
+    }
     console.log(task, useParams())
 
     return (

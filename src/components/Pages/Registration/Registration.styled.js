@@ -44,9 +44,7 @@ const ModalFormLogin = styled.div`
     justify-content: center;
 `
 const ModalInputLogin = styled.input.attrs((props)=>({
-    name:props.name,
-    type:props.type,
-    placeholder:props.placeholder,
+    ...props
 }))` 
     width: 100%;
     min-width: 100%;
@@ -72,19 +70,14 @@ const ModalInputLogin = styled.input.attrs((props)=>({
 }
 }
 `
-const ModalInputPas = styled(ModalInputLogin).attrs((props) =>({
-    name:props.name,
-    type:props.type,
-    placeholder:props.placeholder,
-}))``
 
-const ModalInputName = styled(ModalInputLogin).attrs((props) =>({
-    name:props.name,
-    type:props.type,
-    placeholder:props.placeholder,
-}))``
+const ModalInputName = styled(ModalInputLogin)``
 
-const ModalBtnEnter = styled.button`
+const ModalInputPas = styled(ModalInputLogin)``
+
+const ModalBtnEnter = styled.button.attrs((props)=>({
+    ...props
+}))`
     width: 100%;
     height: 30px;
     background-color: #565EEF;
@@ -101,6 +94,9 @@ const ModalBtnEnter = styled.button`
     font-weight: 500;
     letter-spacing: -0.14px;
     color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     &:hover{
         background-color: #33399b;
     }
