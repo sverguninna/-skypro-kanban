@@ -1,12 +1,12 @@
 import { Route, Routes } from "react-router-dom";
-import MainPage from '../components/Pages/MainPage/MainPage'
-import Modal from '../components/Pages/Modal/Modal'
-import PopBrowse from '../components/Pages/PopBrowse/PopBrowse'
-import PopExit from '../components/Pages/PopExit/PopExit'
-import PopNewCard from '../components/Pages/PopNewCard/PopNewCard'
-import Registration from '../components/Pages/Registration/Registration'
-import NotFoundPage from "../components/Pages/NotFound/NotFound";
-import PrivateRoute from "./Pages/RoutePrivate/AvtorizCheck";
+import MainPage from '../Pages/MainPage/MainPage'
+import Modal from '../Pages/Modal/Modal'
+import PopBrowse from '../Pages/PopBrowse/PopBrowse'
+import PopExit from '../Pages/PopExit/PopExit'
+import PopNewCard from '../Pages/PopNewCard/PopNewCard'
+import Registration from '../Pages/Registration/Registration'
+import NotFoundPage from "../Pages/NotFound/NotFound";
+import PrivateRoute from "../Pages/RoutePrivate/AvtorizCheck";
 import { useState } from "react";
 function AppRoutes() {
     const [isAuth, setIsAuth] = useState(localStorage.getItem('userInfo'));

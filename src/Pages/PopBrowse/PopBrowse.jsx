@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom'
 import { useState } from 'react'
-import { cardList } from '../../../mock/data'
+import {cardList}from '../../mock/data'
 import NotFoundPage from '../NotFound/NotFound'
 import * as S from './PopBrowse.styled'
 

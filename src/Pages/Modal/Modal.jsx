@@ -1,5 +1,5 @@
 import * as S from './Modal.styled'
-import { signİn } from '../../../services/api';
+import { signİn } from '../../services/api';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 function Modal(params) {
@@ -13,12 +13,14 @@ function Modal(params) {
     console.log(errors);
     const validateForm = () => {
 
-        if ( login !== '' && password !== '') {
-            setErrors(false);
-        }
+      
 
     };
      const handleSubmit = async () => {
+        
+        if ( login === '' && password === '') {
+            alert("Введите значения" )
+        }
          try { 
         const data = await signİn({login, password})
         console.log(data);
@@ -27,7 +29,7 @@ function Modal(params) {
         console.log(localStorage);
         }
          catch (error) {
-           console.log(error);
+            alert(error);
            return error
         }
      };
@@ -49,7 +51,7 @@ function Modal(params) {
                             setPassword( e.target.value)
                             validateForm()
                         }} value={password} type="password" name="password" id="formpassword" placeholder="Пароль" />
-                        <S.ModalBtnEnter disabled={errors} onClick={handleSubmit}><S.ModalBtnEnterA >Войти</S.ModalBtnEnterA></S.ModalBtnEnter>
+                        <S.ModalBtnEnter  onClick={handleSubmit}><S.ModalBtnEnterA >Войти</S.ModalBtnEnterA></S.ModalBtnEnter>
                         <S.ModalFormGroup>
                             <S.ModalFormGroupP>Нужно зарегистрироваться?</S.ModalFormGroupP>
                             <S.ModalFormGroupA to='/sing-up'>Регистрируйтесь здесь</S.ModalFormGroupA>

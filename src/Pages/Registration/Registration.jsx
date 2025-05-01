@@ -1,6 +1,6 @@
 import * as S from './Registration.styled'
 import { useState } from 'react';
-import { signUp } from '../../../services/api';
+import { signUp } from '../../services/api';
 import { useNavigate } from "react-router-dom";
 
 
@@ -17,17 +17,20 @@ function Registration(params) {
     console.log(errors);
 
    
-
+/* 
     const validateForm = () => {
 
         if (formData.name !==''  && formData.login !=='' && formData.password !=='') {
             setErrors(false);
         }
 
-    };
+    }; */
 
     // функция отправки формы
    const handleSubmit = async () => {
+    if (formData.name ===''  && formData.login ==='' && formData.password ==='') {
+        alert('Введите значение')
+    }
      try { 
      console.log(formData);
     const data = await signUp(formData)
@@ -36,7 +39,7 @@ function Registration(params) {
     console.log(localStorage);
     }
      catch (error) {
-       console.log(error);
+       alert(error);
        return error
     }
  };
