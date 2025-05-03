@@ -8,11 +8,15 @@ import Registration from '../Pages/Registration/Registration'
 import NotFoundPage from "../Pages/NotFound/NotFound";
 import PrivateRoute from "../Pages/RoutePrivate/AvtorizCheck";
 import { useState } from "react";
+
+
 function AppRoutes() {
-    const [isAuth, setIsAuth] = useState(localStorage.getItem('userInfo'));
+
+   
+   
     
     return   <Routes>
-               <Route element={<PrivateRoute isAuth={isAuth} />}></Route>
+               <Route element={<PrivateRoute/>}></Route>
                <Route path="/" element={<MainPage />}>
                 <Route path="/pop-browse/:id" element={<PopBrowse />} />
                 <Route path="/pop-exit" element={<PopExit />} />

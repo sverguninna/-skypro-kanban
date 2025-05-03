@@ -1,7 +1,7 @@
 import * as S from "./PopExit.styled"
-
+import { useAuthContext } from "../../Context/AuthProvider"
 function PopExit() {
-
+    const [isAuth, seveUser, removeUser] = useAuthContext()
     function  clearUser () {
         localStorage.clear()
     } 
@@ -15,7 +15,7 @@ function PopExit() {
                     </S.PopExitTTL>
                     <div /* className="pop-exit__form" id="formExit"  */>
                         <S.PopExitForm>
-                            < S.PopExitExitYes id="exitYes" onClick={clearUser} ><S.PopExitExitYesA to="/sing-in">Да, выйти</S.PopExitExitYesA> </S.PopExitExitYes>
+                            < S.PopExitExitYes id="exitYes" onClick={removeUser} ><S.PopExitExitYesA to="/sing-in">Да, выйти</S.PopExitExitYesA> </S.PopExitExitYes>
                             <S.PopExitExitNo id="exitNo"><S.PopExitExitNoA to="/">Нет, остаться</S.PopExitExitNoA> </S.PopExitExitNo>
                         </S.PopExitForm>
                     </div>
