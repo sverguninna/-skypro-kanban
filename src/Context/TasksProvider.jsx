@@ -1,13 +1,14 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import { cardList } from "../mock/data";
 import { getTasks } from "../services/api";
-
+import { useAuthContext } from "./AuthProvider";
 const TasksContext = createContext(null)
 
 
 export const TasksProvider = ({ children }) => {
   const [listTasks, setListTasks] = useState([])
-  const user = JSON.parse(localStorage.getItem('userInfo'))
+  const [isAuth, seveUser, removeUser,] = useAuthContext()
+  const user = isAuth
   const token = user.token
 
 useEffect( ()=> {
@@ -24,8 +25,8 @@ useEffect( ()=> {
   getData()
 },[])
 
-console.log(listTasks);
- 
+
+console.log(user, token, listTasks);
 
   return (
     <TasksContext.Provider value={[listTasks]}>{children}</TasksContext.Provider>

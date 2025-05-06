@@ -6,7 +6,7 @@ import PopExit from '../Pages/PopExit/PopExit'
 import PopNewCard from '../Pages/PopNewCard/PopNewCard'
 import Registration from '../Pages/Registration/Registration'
 import NotFoundPage from "../Pages/NotFound/NotFound";
-import PrivateRoute from "../Pages/RoutePrivate/AvtorizCheck";
+import PrivateRoute from "../Pages/RoutePrivate/AuthorizationCheck";
 import { useState } from "react";
 
 

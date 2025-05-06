@@ -10,7 +10,7 @@ const AuthContext = createContext(null);
 export const AuthProvider = ({children}) => {
 
    const [isAuth, setIsAuth] = useState(localStorage.getItem('userInfo'));
-   console.log(isAuth);
+
  
    useEffect(() => {
  
@@ -20,7 +20,8 @@ export const AuthProvider = ({children}) => {
         setIsAuth(JSON.parse(isAuth));
        }
     } catch (error) {
-       console.error("Ошибка при загрузке данных из localStorage:", error);
+    
+        console.log(error);
     }
     }, []);
 
@@ -45,3 +46,4 @@ export const AuthProvider = ({children}) => {
 export const useAuthContext = () => {
      return useContext(AuthContext)
 }
+

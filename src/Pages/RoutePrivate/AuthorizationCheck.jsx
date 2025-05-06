@@ -3,8 +3,10 @@ import { useAuthContext } from "../../Context/AuthProvider";
 
 function PrivateRoute() {
 
-   const [isAuth] = useAuthContext()
+   const [isAuth, seveUser, removeUser,] = useAuthContext()
 
+   console.log(isAuth);
+   
    return isAuth ? <Outlet /> : <Navigate to="/sign-in" />;
 }
 

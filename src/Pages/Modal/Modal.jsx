@@ -10,18 +10,21 @@ function Modal(params) {
     const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
     const [isAuth, seveUser] = useAuthContext()
-    const [errors, setErrors] = useState(true);
+    const [errors, setErrors] = useState(false);
 
-
-    const validateForm = () => {
-
-
-
-    };
+    /*  const validateForm = () => {
+ 
+         if (lo) {
+ 
+         } else {
+ 
+         }
+ 
+     }; */
     const handleSubmit = async () => {
 
         if (login === '' && password === '') {
-            alert("Введите значения")
+            setErrors(true)
         }
         try {
             const data = await signİn({ login, password })
@@ -31,7 +34,7 @@ function Modal(params) {
             console.log(localStorage);
         }
         catch (error) {
-            alert(error);
+            setErrors(true)
             return error
         }
     };
@@ -45,15 +48,27 @@ function Modal(params) {
                         <S.ModalTtlH>Вход</S.ModalTtlH>
                     </S.ModalTtlH>
                     <S.ModalFormLogin id="formLogIn" >
-                        <S.ModalInputLogin onChange={(e) => {
+                        {!errors ? <S.ModalInputLogin onChange={(e) => {
                             setLogin(e.target.value)
-                            validateForm()
+
                         }} value={login} type="text" name="login" id="formlogin" placeholder="Эл. почта" />
-                        <S.ModalInputPas onChange={(e) => {
+                            : <S.InputErrorLog onChange={(e) => {
+                                setLogin(e.target.value)
+
+                            }} value={login} type="text" name="login" id="formlogin" placeholder="Эл. почта" />}
+
+                        {!errors ? <S.ModalInputPas onChange={(e) => {
                             setPassword(e.target.value)
-                            validateForm()
+
+                        }} value={password} type="password" name="password" id="formpassword" placeholder="Пароль" /> : <S.InputErrorPas onChange={(e) => {
+                            setPassword(e.target.value)
+
                         }} value={password} type="password" name="password" id="formpassword" placeholder="Пароль" />
-                        <S.ModalBtnEnter onClick={handleSubmit}><S.ModalBtnEnterA >Войти</S.ModalBtnEnterA></S.ModalBtnEnter>
+
+                        }
+
+                        {errors && <S.ErrorMessage>Введенные вами данные не распознаны. Проверьте свой логин и пароль и повторите попытку входа. </S.ErrorMessage>}
+                        {!errors ? <S.ModalBtnEnter onClick={handleSubmit}><S.ModalBtnEnterA >Войти</S.ModalBtnEnterA></S.ModalBtnEnter> : <S.ModalBtnEnterError onClick={handleSubmit}><S.ModalBtnEnterA >Войти</S.ModalBtnEnterA></S.ModalBtnEnterError>}
                         <S.ModalFormGroup>
                             <S.ModalFormGroupP>Нужно зарегистрироваться?</S.ModalFormGroupP>
                             <S.ModalFormGroupA to='/sing-up'>Регистрируйтесь здесь</S.ModalFormGroupA>

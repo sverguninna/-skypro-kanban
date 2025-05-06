@@ -4,7 +4,7 @@ const Registration = 'https://wedev-api.sky.pro/api/user';
 const Logİn = 'https://wedev-api.sky.pro/api/user/login'
 const postAPI = 'https://wedev-api.sky.pro/api/kanban'
 const ApiUserTasks = ' https://wedev-api.sky.pro/api/kanban/:id'
-const changeTasksApi = 'https://wedev-api.sky.pro/api/kanban/:id'
+
 
 
 export async function getTasks(token) {
@@ -14,10 +14,12 @@ export async function getTasks(token) {
             Authorization: 'Bearer ' + token,
          },
       })
-      console.log(data.data);
-      return data.data
+      console.log(data.data.tasks);
+      return data.data.tasks
 
    } catch (error) {
+      console.log(error);
+   
       throw new Error(error.message)
    }
 }
