@@ -7,14 +7,12 @@ const TasksContext = createContext(null)
 
 export const TasksProvider = ({ children }) => {
   const [listTasks, setListTasks] = useState([])
-  const [isAuth, seveUser, removeUser,] = useAuthContext()
-  const user = isAuth
-  const token = user.token
-
+  const [isAuth, seveUser, removeUser, ] = useAuthContext()
+ 
 useEffect( ()=> {
   const getData = async () => {
     try {
-     const data = await getTasks(token)
+     const data = await getTasks(isAuth.token)
      setListTasks(data)
  
     }
@@ -26,7 +24,6 @@ useEffect( ()=> {
 },[])
 
 
-console.log(user, token, listTasks);
 
   return (
     <TasksContext.Provider value={[listTasks]}>{children}</TasksContext.Provider>

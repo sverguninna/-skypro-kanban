@@ -3,11 +3,11 @@ import { useAuthContext } from "../../Context/AuthProvider";
 
 function PrivateRoute() {
 
-   const [isAuth, seveUser, removeUser,] = useAuthContext()
+   const [isAuth, seveUser, removeUser, ] = useAuthContext()
 
-   console.log(isAuth);
+   console.log(isAuth.token);
    
-   return isAuth ? <Outlet /> : <Navigate to="/sign-in" />;
+   return (isAuth.token ? <Outlet /> : <Navigate to="/sign-in" />) ;
 }
 
 export default PrivateRoute;

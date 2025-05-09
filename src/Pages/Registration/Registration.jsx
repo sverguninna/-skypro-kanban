@@ -43,6 +43,7 @@ function Registration(params) {
             console.log(localStorage);
         }
         catch (error) {
+            const dataError = error
             setErrorsApi(true)
             setcheckError(true)
             return error
@@ -99,7 +100,7 @@ function Registration(params) {
                         }} value={formData.password} type="password" name="password" placeholder="Пароль" />}
                         {errors && <S.ErrorMessage> Введенные вами данные не корректны.
                             Чтобы завершить регистрацию, заполните все поля в форме. </S.ErrorMessage>}
-                        {errorsAPi && <S.ErrorMessage> Введенные вами данные не корректны. Чтобы завершить регистрацию, введите данные корректно и повторите попытку.</S.ErrorMessage>}
+                        {errorsAPi && <S.ErrorMessage> {dataError} </S.ErrorMessage>}
                         {!checkError ? <S.ModalBtnEnter onClick={handleSubmit}><S.ModalBtnEnterA >Зарегестрироваться</S.ModalBtnEnterA></S.ModalBtnEnter> : <S.ModalBtnEnterError onClick={handleSubmit}><S.ModalBtnEnterA >Войти</S.ModalBtnEnterA></S.ModalBtnEnterError>}
                         <S.ModalFormGroup>
                             <S.ModalFormGroupP>Уже есть аккаунт?  <S.ModalFormGroupA to="/sing-in">Войдите здесь</S.ModalFormGroupA></S.ModalFormGroupP>

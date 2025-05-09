@@ -10,7 +10,7 @@ const AuthContext = createContext(null);
 export const AuthProvider = ({children}) => {
 
    const [isAuth, setIsAuth] = useState(localStorage.getItem('userInfo'));
-
+    console.log(isAuth.token);
  
    useEffect(() => {
  
@@ -36,7 +36,7 @@ export const AuthProvider = ({children}) => {
     }
 
     return (
-        <AuthContext.Provider value={[isAuth, seveUser, removeUser, ]}>
+        <AuthContext.Provider value={[isAuth, seveUser, removeUser,  ]}>
           {children}
         </AuthContext.Provider>
     )
