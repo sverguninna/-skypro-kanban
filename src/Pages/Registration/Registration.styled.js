@@ -101,6 +101,18 @@ const ModalBtnEnter = styled.button.attrs((props)=>({
         background-color: #33399b;
     }
 `
+
+
+ const InputErrorPas = styled(ModalInputPas)`
+ border: 0.7px solid #F84D4D
+ `
+const InputErrorLog= styled(ModalInputLogin)`
+     border: 0.7px solid #F84D4D
+`
+const InputErrorName= styled(ModalInputName)`
+     border: 0.7px solid #F84D4D
+`
+
 const ModalBtnEnterA = styled(NavLink)`
     width: 100%;
     height: 100%;
@@ -128,6 +140,21 @@ const ModalFormGroupA = styled(NavLink)`
   letter-spacing: -0.14px;
   text-decoration: underline;
 `
+
+const ErrorMessage = styled.p`
+color: #F84D4D;
+
+font-family: Arial;
+font-weight: 400;
+font-size: 12px;
+line-height: 150%;
+letter-spacing: -1%;
+text-align: center;
+
+` 
+const ModalBtnEnterError = styled(ModalBtnEnter)`
+background: #94A6BE;
+`
 export {ContainerSignup, Modal, ModalBlock, ModalTtlH, ModalFormLogin, ModalInputLogin,ModalInputPas, ModalBtnEnter, ModalBtnEnterA,
-    ModalFormGroup, ModalFormGroupA,ModalFormGroupP, ModalInputName,
+    ModalFormGroup, ModalFormGroupA,ModalFormGroupP, ModalInputName, InputErrorLog, InputErrorName, InputErrorPas, ErrorMessage, ModalBtnEnterError
 }

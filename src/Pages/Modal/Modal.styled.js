@@ -1,6 +1,21 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
+
+
+
+const ErrorMessage = styled.p`
+color: #F84D4D;
+
+font-family: Arial;
+font-weight: 400;
+font-size: 12px;
+line-height: 150%;
+letter-spacing: -1%;
+text-align: center;
+
+` 
+
 const ContainerSignin = styled.div `
     display: block;
     width: 100vw;
@@ -70,10 +85,16 @@ const ModalInputLogin = styled.input.attrs((props)=>({
 }
 }
 `
+
 const ModalInputPas = styled(ModalInputLogin).attrs((props) =>({
    ...props
 }))``
-
+const InputErrorPas = styled(ModalInputPas)`
+border: 0.7px solid #F84D4D
+`
+const InputErrorLog= styled(ModalInputLogin)`
+    border: 0.7px solid #F84D4D
+`
 const ModalBtnEnter = styled.button.attrs((props)=>({...props}))`
     width: 100%;
     height: 30px;
@@ -95,6 +116,9 @@ const ModalBtnEnter = styled.button.attrs((props)=>({...props}))`
         background-color: #33399b;
     }
 `
+const ModalBtnEnterError = styled(ModalBtnEnter)`
+background: #94A6BE;
+`
 const ModalBtnEnterA = styled(NavLink)`
     width: 100%;
     height: 100%;
@@ -103,6 +127,7 @@ const ModalBtnEnterA = styled(NavLink)`
     align-items: center;
     justify-content: center;
 `
+
 
 const ModalFormGroup = styled.div`
     text-align: center;
@@ -123,5 +148,5 @@ const ModalFormGroupA = styled(NavLink)`
   text-decoration: underline;
 `
 
-export {ContainerSignin, Modal, ModalTtlH, ModalBlock, ModalFormLogin, ModalInputLogin, ModalInputPas, ModalBtnEnter, ModalBtnEnterA,ModalFormGroup,ModalFormGroupA,ModalFormGroupP,
+export {ContainerSignin, InputErrorLog, InputErrorPas, Modal, ModalTtlH, ModalBlock, ModalFormLogin, ModalInputLogin, ModalInputPas,ErrorMessage, ModalBtnEnterError, ModalBtnEnter, ModalBtnEnterA,ModalFormGroup,ModalFormGroupA,ModalFormGroupP,
 }

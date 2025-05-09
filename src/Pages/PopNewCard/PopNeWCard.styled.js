@@ -56,7 +56,7 @@ const PopCardClose = styled(NavLink)`
 }
 `
 const Subttl =styled.label.attrs((props)=>({
-  htmlFor: props.htmlFor
+  ...props
 }))`
   color: #000;
   font-size: 14px;
@@ -79,10 +79,7 @@ const FormBlock = styled.div`
   flex-direction: column;
 `
 const FormNewInput = styled.input.attrs((props)=>({
-  type:props.type,
-  name:props.name,
-  placeholder:props.placeholder,
-  autoFocus:props.autoFocus
+...props
 }))`
   margin: 20px 0;
   width: 100%;
@@ -111,10 +108,7 @@ const FormNewInput = styled.input.attrs((props)=>({
 
 `
 const FormNewArea = styled.textarea.attrs((props)=>({
-  type:props.type,
-  name:props.name,
-  placeholder:props.placeholder,
-  autoFocus:props.autoFocus
+ ...props
 }))`
  max-width: 370px;
   margin-top: 14px;
@@ -144,104 +138,6 @@ const FormNewArea = styled.textarea.attrs((props)=>({
 }
 `
 
-const PopCardCalendar = styled.div`
-    width: 100%;
-    width: 182px;
-    margin-bottom: 20px;
-`
-const CalendarTtl = styled.p`
-  margin-bottom: 14px;
-  padding: 0 7px;
-  color: #000;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 1;
-`
-const CalendarP = styled.p`
-  color: #94A6BE;
-  font-size: 10px;
-  line-height: 1;
-`
-const CalendarPSpan = styled.span`
-  color: #000000;
-`
-
-const CalendarBlock = styled.div `
-  display: block;
-`
-const CalendarMonth = styled.div`
-  color: #94A6BE;
-  font-size: 14px;
-  line-height: 25px;
-  font-weight: 600;
-`
-const CalendarContent = styled.div `
-  margin-bottom: 12px;
-`
-const CalendarDaysNames = styled.div`
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
-  justify-content: space-between;
-  margin: 7px 0;
-  padding: 0 7px;
-`
-const CalendarDayName = styled.div`
-  color: #94A6BE;
-  font-size: 10px;
-  font-weight: 500;
-  line-height: normal;
-  letter-spacing: -0.2px;
-`
-const CalendarCells = styled.div`
-  width: 182px;
-  height: 126px;
-  display: flex;
-  flex-wrap: wrap;
-`
-const CalendarCell = styled.div` 
-  width: 22px;
-  height: 22px;
-  margin: 2px;
-  border-radius: 50%;
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
-  justify-content: center;
-  color: #94A6BE;
-  font-size: 10px;
-  line-height: 1;
-  letter-spacing: -0.2px;
-  cursor: pointer;
-  &:hover {
-  color: #94A6BE;
-  background-color: #EAEEF6;
-  }
-`
-const CalendarCellOtherMonth = styled(CalendarCell)`
-
-    opacity: 0;
-
-`
-const CalendarCellCurrent= styled(CalendarCell)`
-  font-weight: 700;
-`
-const CalendarNav = styled.div`
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 14px;
-  padding: 0 7px;
-`
-const CalendarPeriod = styled.div`
-  padding: 0 7px;
-`
-
-/* ._active-day {
-  background-color: #94A6BE;
-  color: #FFFFFF;
-} */
 
 
 
@@ -324,35 +220,13 @@ const ActiveCategory = styled.div`
   color: #FFFFFF;
   float: right;
 `
-const NavActions = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-`
-const NavAction = styled.div`
-  width: 18px;
-  height: 25px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`
-const  NavActionSVG = styled.svg.attrs((props)=>({
-  xmlns:props.xmlns,
-  width: props.width,
-  height: props.height,
-  viewBox: props.viewBox,
-}))`
-  fill: #94A6BE;
-`
+
 const Input = styled.input.attrs((props)=>({
   type:props.type,
   value:props.value,
 }))
 
-export {PopNewCardS, PopNewCardContainer, PopNewCardBlock, PopCardContent, PopCardClose, PopCardTtl, PopCardForm, PopCardWrap,FormBlock,FormNewInput,FormNewArea, Subttl, PopCardCalendar,
-  CalendarBlock, CalendarCell,CalendarCells, CalendarContent, CalendarDayName, CalendarDaysNames,CalendarMonth,CalendarNav,CalendarTtl,
-  CalendarCellOtherMonth, CalendarP, CalendarPSpan, CalendarPeriod,CalendarCellCurrent,CategoriesThemes,CategoriesThemeP,CategoriesTheme,CategoriesP,Categories,
-  CategoriesPurple, CategoriesOrange, CategoriesGreen, ActiveCategory, OrangeP, GreenP,PurpleP, FormNewCreate, NavActions, NavAction,
-  NavActionSVG, Input,
+export {PopNewCardS, PopNewCardContainer, PopNewCardBlock, PopCardContent, PopCardClose, PopCardTtl, PopCardForm, PopCardWrap,FormBlock,FormNewInput,FormNewArea, Subttl,
+  CategoriesThemes,CategoriesThemeP,CategoriesTheme,CategoriesP,Categories,
+  CategoriesPurple, CategoriesOrange, CategoriesGreen, ActiveCategory, OrangeP, GreenP,PurpleP, FormNewCreate,Input,
 }
