@@ -1,26 +1,76 @@
-import * as S from "./PopNeWCard.styled"
+import { useParams } from 'react-router-dom'
+import { useState } from 'react'
+import {cardList}from '../../mock/data'
+import NotFoundPage from '../NotFound/NotFound'
+import * as S from './PopBrowse.styled'
 
-function PopNewCard(params) {
+
+function PopBrowse(params) {
+
+    const [redactionMode, setRedactionMode] = useState(false)
+    const { id } = useParams()
+    
+    const [task] = cardList.filter((card) => card.id === Number(id))
+    if (!task) {
+        return <NotFoundPage/>
+    }
+    console.log(task, useParams())
+
     return (
-        <S.PopNewCardS /* id="popNewCard" */>
-            < S.PopNewCardContainer>
-                < S.PopNewCardBlock>
-                    <S.PopCardContent>
-                        <S.PopCardTtl>Создание задачи</S.PopCardTtl>
-                        <S.PopCardClose to="/">&#10006;</S.PopCardClose>
-                        <S.PopCardWrap>
-                            <S.PopCardForm /* className="pop-new-card__form form-new" */ id="formNewCard" >
-                                <S.FormBlock>
-                                    <S.Subttl htmlFor="formTitle" >Название задачи</S.Subttl>
-                                    <S.FormNewInput type="text" name="name"  placeholder="Введите название задачи..." autoFocus />
-                                </S.FormBlock>
-                                <S.FormBlock>
-                                    <S.Subttl htmlFor="textArea" >Описание задачи</S.Subttl>
-                                    <S.FormNewArea name="text" placeholder="Введите описание задачи..."></S.FormNewArea>
-                                </S.FormBlock>
-                            </S.PopCardForm>
-                            <S.PopCardCalendar /*  className="pop-new-card__calendar calendar" */>
-                                <S.CalendarTtl >Даты</S.CalendarTtl>
+        <S.PopBrowse id="popBrowse">
+            <S.PopBrowseContainer>
+                <S.PopBrowseBlock>
+                    <S.PopBrowseContent>
+                        <S.PopBrowseTopBlock>
+                            <S.PopBrowseTtl>{task.title} </S.PopBrowseTtl>
+                            {task.topic === 'Web Design' && <S.CategoriesOrange>
+                                <S.OrangeP>{task.topic}</S.OrangeP>
+                            </S.CategoriesOrange>}
+                            {task.topic === 'Copywriting' && <S.CategoriesGreen>
+                                <S.GreenP>{task.topic}</S.GreenP>
+                            </S.CategoriesGreen>}
+                            {task.topic === 'Research' && <S.CategoriesPurple>
+                                <S.PurpleP>{task.topic}</S.PurpleP>
+                            </S.CategoriesPurple>}
+                        </S.PopBrowseTopBlock>
+                        <S.PopBrowseStatus>
+                            <S.StatusP>Статус</S.StatusP>
+                            <S.StatusThemes>
+
+                                {redactionMode ? <> 
+                                <S.StatusThemeHide>
+                                    <S.StatusThemeP>Без статуса</S.StatusThemeP>
+                                </S.StatusThemeHide>
+                                    <S.StatusThemeHide>
+                                        <S.StatusThemeP>Нужно сделать</S.StatusThemeP>
+                                    </S.StatusThemeHide>
+                                    <S.StatusThemeHide>
+                                        <S.StatusThemeP>В работе</S.StatusThemeP>
+                                    </S.StatusThemeHide>
+                                    <S.StatusThemeHide>
+                                        <S.StatusThemeP>Тестирование</S.StatusThemeP>
+                                    </S.StatusThemeHide>
+                                    <S.StatusThemeHide>
+                                        <S.StatusThemeP>Готово</S.StatusThemeP>
+                                    </S.StatusThemeHide></> : <>
+                                    <S.StatusThemeGray>
+                                    <S.GrayP>{task.status}</S.GrayP>
+                                   </S.StatusThemeGray>
+                                    </>}
+
+
+
+                            </S.StatusThemes>
+                        </S.PopBrowseStatus>
+                        <S.PopBrowseWrap>
+                            <S.PopBrowseForm id="formBrowseCard" >
+                                <S.FormBrowseBlok>
+                                    <S.Subttl htmlFor="textArea01">Описание задачи</S.Subttl>
+                                    <S.FormBrowseArea name="text" id="textArea01" readOnly placeholder="Введите описание задачи..."></S.FormBrowseArea>
+                                </S.FormBrowseBlok>
+                            </S.PopBrowseForm>
+                            <S.PopCardCalendar>
+                                <S.CalendarTtl>Даты</S.CalendarTtl>
                                 <S.CalendarBlock>
                                     <S.CalendarNav>
                                         <S.CalendarMonth>Сентябрь 2023</S.CalendarMonth>
@@ -85,32 +135,46 @@ function PopNewCard(params) {
                                             <S.CalendarCellOtherMonth /*  _weekend" */>1</S.CalendarCellOtherMonth>
                                         </S.CalendarCells>
                                     </S.CalendarContent>
+
                                     <input type="hidden" id="datepick_value" value="08.09.2023" />
                                     <S.CalendarPeriod>
-                                        <S.CalendarP>Выберите срок исполнения <S.CalendarPSpan></S.CalendarPSpan>.</S.CalendarP>
+                                        <S.CalendarP>Срок исполнения: <S.CalendarPSpan className="date-control">09.09.23</S.CalendarPSpan></S.CalendarP>
                                     </S.CalendarPeriod>
                                 </S.CalendarBlock>
                             </S.PopCardCalendar>
-                        </S.PopCardWrap>
-                        <S.Categories>
-                            <S.CategoriesP>Категория</S.CategoriesP>
-                            <S.CategoriesThemes>
-                                <S.CategoriesOrange>
-                                    <S.OrangeP>Web Design</S.OrangeP>
-                                </S.CategoriesOrange>
-                                <S.CategoriesGreen>
-                                    <S.GreenP>Research</S.GreenP>
-                                </S.CategoriesGreen>
-                                <S.CategoriesPurple>
-                                    <S.PurpleP>Copywriting</S.PurpleP>
-                                </S.CategoriesPurple>
-                            </S.CategoriesThemes>
-                        </S.Categories>
-                        <button className="form-new__create _hover01" id="btnCreate">Создать задачу</button>
-                    </S.PopCardContent>
-                </S.PopNewCardBlock>
-            </S.PopNewCardContainer>
-        </S.PopNewCardS>
+                        </S.PopBrowseWrap>
+                        {/*     <div className="theme-down__categories theme-down">
+                            <p className="categories__p subttl">Категория</p>
+                            <div className="categories__theme _orange _active-category">
+                                <p className="_orange">Web Design</p>
+                            </div>
+                        </div> */}
+
+                        {redactionMode ? <S.PopBrowseBTNBrowseEdit >
+                            <S.BTNGroup>
+                                <S.Save><S.SaveA >Сохранить</S.SaveA></S.Save>
+                                <S.Cancel onClick={() => setRedactionMode(false)}><S.CancelA href="#">Отменить</S.CancelA></S.Cancel>
+                                <S.DeleteBTNBor><S.DeleteBTNBorA href="#">Удалить задачу</S.DeleteBTNBorA></S.DeleteBTNBor>
+                            </S.BTNGroup>
+                            <S.CloseBTNBg><S.CloseBTNBgA to='/'>Закрыть</S.CloseBTNBgA></S.CloseBTNBg>
+                        </S.PopBrowseBTNBrowseEdit> : <S.PopBrowseBTNBrowse>
+                            <S.BTNGroup>
+                                <S.EditBTNBor onClick={() => setRedactionMode(true)}><S.EditBTNBorA href="#">Редактировать задачу</S.EditBTNBorA></S.EditBTNBor>
+                                <S.DeleteBTNBor><S.DeleteBTNBorA href="#">Удалить задачу</S.DeleteBTNBorA></S.DeleteBTNBor>
+                            </S.BTNGroup>
+                            <S.CloseBTNBg><S.CloseBTNBgA to='/'>Закрыть</S.CloseBTNBgA></S.CloseBTNBg>
+                        </S.PopBrowseBTNBrowse>}
+
+
+
+
+                    </S.PopBrowseContent>
+                </S.PopBrowseBlock>
+            </S.PopBrowseContainer>
+        </S.PopBrowse>
+
+
     )
 }
-export default PopNewCard
+
+export default PopBrowse
