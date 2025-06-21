@@ -2,9 +2,9 @@ import * as S from "./PopExit.styled"
 import { useAuthContext } from "../../Context/AuthProvider"
 function PopExit() {
     const [isAuth, seveUser, removeUser] = useAuthContext()
-    function  clearUser () {
-        localStorage.clear()
-    } 
+    // function  clearUser () {
+    //     localStorage.clear()
+    // } 
     
     return (
         < S.PopExitS /* id="popExit" */>

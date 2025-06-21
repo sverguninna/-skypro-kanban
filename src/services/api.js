@@ -3,7 +3,7 @@ const BaseAPi = 'https://wedev-api.sky.pro/api/kanban'
 const Registration = 'https://wedev-api.sky.pro/api/user';
 const Logİn = 'https://wedev-api.sky.pro/api/user/login'
 const postAPI = 'https://wedev-api.sky.pro/api/kanban'
-const ApiUserTasks = ' https://wedev-api.sky.pro/api/kanban/:id'
+const ApiUserTasks = 'https://wedev-api.sky.pro/api/kanban/:id'
 
 
 
@@ -69,27 +69,19 @@ export async function changeTasks(id, token, { title,
    }
 }
 
-export async function postTasks({ title,
-   topic,
-   status,
-   description,
-   date }) {
+export async function postTasks(newTask, token) {
    try {
       const data = await axios.post(
          postAPI,
-         {
-            title,
-            topic,
-            status,
-            description,
-            date
-         },
+         newTask,
          {
             headers: {
-               "Content-Type": "",
+                 Authorization: 'Bearer ' + token,
+                  "Content-Type": "application/json",
             },
          }
       )
+      console.log(data.data);
       return data.data
    } catch (error) {
       throw new Error(error.message)

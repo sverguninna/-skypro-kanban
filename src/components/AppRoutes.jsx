@@ -12,22 +12,22 @@ import { useState } from "react";
 
 function AppRoutes() {
 
-   
-   
-    
-    return   <Routes>
-               <Route element={<PrivateRoute/>}></Route>
-               <Route path="/" element={<MainPage />}>
+
+
+    return <Routes>
+          <Route element={<PrivateRoute />}>
+            <Route path="/" element={<MainPage />}>
                 <Route path="/pop-browse/:id" element={<PopBrowse />} />
                 <Route path="/pop-exit" element={<PopExit />} />
                 <Route path="/pop-new-card" element={<PopNewCard />} />
             </Route>
+         </Route>
             <Route path="/sing-up" element={<Registration />} />
             <Route path="/sing-in" element={<Modal />} />
             <Route path='*' element={<NotFoundPage />} />
-        </Routes>
-  
-    
+    </Routes>
+
+
 
 }
 export default AppRoutes

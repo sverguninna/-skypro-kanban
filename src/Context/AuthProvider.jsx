@@ -10,8 +10,8 @@ const AuthContext = createContext(null);
 export const AuthProvider = ({children}) => {
 
    const [isAuth, setIsAuth] = useState(localStorage.getItem('userInfo'));
-    console.log(isAuth.token);
- 
+   
+  console.log(isAuth);
    useEffect(() => {
  
     // А тут мы проверяем ЛС, когда приложение запускается
@@ -26,8 +26,8 @@ export const AuthProvider = ({children}) => {
     }, []);
 
     const seveUser = (userData) => {
-        setIsAuth(userData);
         if (userData) {
+           setIsAuth(userData);
            localStorage.setItem("userInfo", JSON.stringify(userData));
         } 
     };
@@ -36,7 +36,7 @@ export const AuthProvider = ({children}) => {
     }
 
     return (
-        <AuthContext.Provider value={[isAuth, seveUser, removeUser,  ]}>
+        <AuthContext.Provider value={[isAuth, seveUser, removeUser]}>
           {children}
         </AuthContext.Provider>
     )

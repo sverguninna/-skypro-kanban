@@ -56,7 +56,9 @@ const CalendarCells = styled.div`
   display: flex;
   flex-wrap: wrap;
 `
-const CalendarCell = styled.div` 
+const CalendarCell = styled.div.attrs((props)=>({ 
+  ...props
+ }))` 
   width: 22px;
   height: 22px;
   margin: 2px;
@@ -92,7 +94,8 @@ const CalendarNav = styled.div`
   padding: 0 7px;
 `
 const CalendarPeriod = styled.div`
-  padding: 0 7px;
+ 
+   padding-top: 25px;
 `
 const NavActions = styled.div`
   display: flex;

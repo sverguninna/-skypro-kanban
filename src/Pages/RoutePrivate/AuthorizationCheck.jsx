@@ -1,13 +1,19 @@
-import { Navigate, Outlet } from "react-router-dom";
+import { Outlet, Navigate } from "react-router-dom";
 import { useAuthContext } from "../../Context/AuthProvider";
 
-function PrivateRoute() {
+function PrivateRoute() { 
 
-   const [isAuth, seveUser, removeUser, ] = useAuthContext()
 
-   console.log(isAuth.token);
+ const [isAuth, seveUser, removeUser,] = useAuthContext()
+
+ console.log(isAuth)
+
+  if (!isAuth) {
+    return <Navigate to="/sing-in"/>
+  }
    
-   return (isAuth.token ? <Outlet /> : <Navigate to="/sign-in" />) ;
+
+   return <Outlet />;
 }
 
 export default PrivateRoute;
